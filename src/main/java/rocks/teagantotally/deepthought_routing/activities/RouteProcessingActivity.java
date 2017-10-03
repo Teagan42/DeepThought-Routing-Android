@@ -1,5 +1,6 @@
 package rocks.teagantotally.deepthought_routing.activities;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -27,9 +28,18 @@ public final class RouteProcessingActivity
             return;
         }
 
-        router.handleIntent(this,
-                            getIntent());
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                router.handleIntent(RouteProcessingActivity.this,
+                                    getIntent());
+                return null;
+            }
 
-        finish();
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                finish();
+            }
+        };
     }
 }
