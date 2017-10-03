@@ -19,6 +19,7 @@ import rocks.teagantotally.deepthought_routing.activities.RouteDisplayActivity;
 import rocks.teagantotally.deepthought_routing.activities.RouteProcessingActivity;
 import rocks.teagantotally.deepthought_routing.annotations.ActivityRouteDefinition;
 import rocks.teagantotally.deepthought_routing.annotations.FragmentRouteDefinition;
+import rocks.teagantotally.deepthought_routing.exceptions.MalformedRouteException;
 import rocks.teagantotally.deepthought_routing.exceptions.RouteNotAuthorizedException;
 import rocks.teagantotally.deepthought_routing.exceptions.RouteNotFoundException;
 import rocks.teagantotally.deepthought_routing.helpers.ClassHelper;
@@ -55,11 +56,23 @@ public class Router<UserIdentifierType> {
         /**
          * Set the uri to the activity to display the routes
          *
-         * @param routesUri The uri
+         * @param routesUri The uri to intercept
          * @return This builder
          */
         public Builder<UserIdentifierType> setRoutesUri(Uri routesUri) {
             this.routesUri = routesUri;
+
+            return this;
+        }
+
+        /**
+         * Set the uri to the activity to display the routes
+         *
+         * @param routesUri The uri to intercept
+         * @return This builder
+         */
+        public Builder<UserIdentifierType> setRoutesUri(String routesUri) {
+            this.routesUri = Uri.parse(routesUri);
 
             return this;
         }
@@ -118,7 +131,7 @@ public class Router<UserIdentifierType> {
          * @param activityClasses Activity classes decorated with ActivityRouteDefinition
          * @return This builder
          */
-        public Builder<UserIdentifierType> addActivityClassToRoute(
+        public Builder<UserIdentifierType> addRoutedActivity(
                   Class<? extends RoutedActivity>... activityClasses) {
             if (activityClasses == null || activityClasses.length == 0) {
                 return this;
@@ -136,7 +149,7 @@ public class Router<UserIdentifierType> {
          * @param fragmentClasses Fragment classes decorated with FragmentRouteDefinition
          * @return This builder
          */
-        public Builder<UserIdentifierType> addFragmentClassToRoute(
+        public Builder<UserIdentifierType> addRoutedFragment(
                   Class<? extends Fragment>... fragmentClasses) {
             if (fragmentClasses == null || fragmentClasses.length == 0) {
                 return this;
@@ -209,6 +222,10 @@ public class Router<UserIdentifierType> {
 
         @SuppressWarnings("unchecked")
         private void addAnnotatedClassesFromContext() {
+            if (packagesToInclude.isEmpty()) {
+                return;
+            }
+
             Set<Class<?>> annotatedClasses =
                       ClassHelper.getClassesWithAnnotation(
                                 context,
@@ -380,8 +397,15 @@ public class Router<UserIdentifierType> {
         }
 
         try {
+            Set<MalformedRouteException> malformedRoutes = new HashSet<>();
             for (Route route : routes) {
-                Bundle extras = route.matchUri(requestedUri);
+                Bundle extras = null;
+                try {
+                    extras = route.matchUri(requestedUri);
+                } catch (MalformedRouteException e) {
+                    malformedRoutes.add(e);
+                }
+
                 if (extras == null) {
                     continue;
                 }
@@ -408,43 +432,59 @@ public class Router<UserIdentifierType> {
 
                 context.startActivity(routeIntent);
 
-                notifyListeners(route,
-                                extras);
+                notifyListenersRouteHandled(route,
+                                            extras);
 
                 return true;
             }
 
-            throw new RouteNotFoundException(requestedUri);
+            if (malformedRoutes.isEmpty()) {
+                throw new RouteNotFoundException(requestedUri);
+            } else {
+                notifyListenersOfMalformation(requestedUri,
+                                              malformedRoutes);
+            }
         } catch (RouteNotFoundException e) {
-            notifyListeners(e.getRequestedUri());
+            notifyListenersRouteNotFound(e.getRequestedUri());
         } catch (RouteNotAuthorizedException e) {
-            notifyListeners(e.getRequestedUri(),
-                            e.getRoute()
-                             .getRequiredPermissions());
+            notifyListenersUnauthorizedAccess(e.getRequestedUri(),
+                                              e.getRoute()
+                                               .getRequiredPermissions());
         }
 
         return false;
     }
 
-    private void notifyListeners(Uri uri) {
+    private void notifyListenersRouteNotFound(Uri uri) {
         for (RouteListener listener : routeListeners) {
             listener.onRouteNotFound(uri);
         }
     }
 
-    private void notifyListeners(Uri uri,
-                                 Set<String> requiredPermissions) {
+    private void notifyListenersUnauthorizedAccess(Uri uri,
+                                                   Set<String> requiredPermissions) {
         for (RouteListener listener : routeListeners) {
             listener.onRouteNotAuthorized(uri,
                                           requiredPermissions);
         }
     }
 
-    private void notifyListeners(Route route,
-                                 Bundle extras) {
+    private void notifyListenersRouteHandled(Route route,
+                                             Bundle extras) {
         for (RouteListener listener : routeListeners) {
             listener.onRouteHandled(route,
                                     extras);
+        }
+    }
+
+    private void notifyListenersOfMalformation(Uri uri,
+                                               Set<MalformedRouteException> malformedRouteExceptions) {
+        MalformedRouteException[] exceptions =
+                  new MalformedRouteException[malformedRouteExceptions.size()];
+        exceptions = malformedRouteExceptions.toArray(exceptions);
+
+        for (RouteListener listener : routeListeners) {
+            listener.onMalformedRoute(exceptions);
         }
     }
 }
