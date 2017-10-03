@@ -14,7 +14,7 @@ import rocks.teagantotally.deepthought_routing.BR;
 import rocks.teagantotally.deepthought_routing.R;
 import rocks.teagantotally.deepthought_routing.Route;
 import rocks.teagantotally.deepthoughtrecycler.AbstractItemBinder;
-import rocks.teagantotally.deepthoughtrecycler.ClickHandler;
+import rocks.teagantotally.deepthoughtrecycler.handlers.item.ClickHandler;
 import rocks.teagantotally.deepthoughtrecycler.ItemBinder;
 
 /**
