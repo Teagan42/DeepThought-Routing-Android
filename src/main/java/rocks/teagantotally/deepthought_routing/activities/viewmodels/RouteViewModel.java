@@ -23,8 +23,8 @@ import rocks.teagantotally.deepthought_routing.R;
 import rocks.teagantotally.deepthought_routing.Route;
 import rocks.teagantotally.deepthought_routing.annotations.QueryParam;
 import rocks.teagantotally.deepthought_routing.annotations.UrlParam;
-import rocks.teagantotally.deepthoughtrecycler.AbstractItemBinder;
-import rocks.teagantotally.deepthoughtrecycler.ItemBinder;
+import rocks.teagantotally.deepthoughtrecycler.binders.AbstractItemBinder;
+import rocks.teagantotally.deepthoughtrecycler.binders.ItemBinder;
 
 /**
  * Created by tglenn on 10/2/17.
