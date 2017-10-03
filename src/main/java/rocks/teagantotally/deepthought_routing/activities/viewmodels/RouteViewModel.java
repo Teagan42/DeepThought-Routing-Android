@@ -33,6 +33,7 @@ import rocks.teagantotally.deepthoughtrecycler.ItemBinder;
 public class RouteViewModel
           extends BaseObservable {
     private static final int LONG_PERMISSION_NAME_LENGTH = 20;
+    private static final boolean ENABLE_COLLAPSING = false;
 
     private static Predicate<String> longPermissionNamePredicate =
               new Predicate<String>() {
@@ -83,7 +84,8 @@ public class RouteViewModel
                        .isEmpty();
 
         permissionsLayoutManager =
-                  hasLongPermissionName || route.getRequiredPermissions().size() < 2
+                  hasLongPermissionName || route.getRequiredPermissions()
+                                                .size() < 2
                   ? new LinearLayoutManager(context)
                   : new GridLayoutManager(context,
                                           2);
@@ -97,6 +99,9 @@ public class RouteViewModel
      * Toggle the expanded view
      */
     public void toggleExpanded() {
+        if (!ENABLE_COLLAPSING) {
+            return;
+        }
         this.expanded = !this.expanded;
         notifyChange();
     }
@@ -141,10 +146,12 @@ public class RouteViewModel
      * @return The activity/fragment class path
      */
     public String getClassPath() {
-        String path = route.getActivityClass().getSimpleName();
+        String path = route.getActivityClass()
+                           .getSimpleName();
         if (route.getFragmentClass() != null) {
             path += " > ";
-            path += route.getFragmentClass().getSimpleName();
+            path += route.getFragmentClass()
+                         .getSimpleName();
         }
 
         return path;
@@ -188,7 +195,7 @@ public class RouteViewModel
      * @return The visibility for the query parameters view
      */
     public int getParametersVisibility() {
-        return !getParameters().isEmpty() && expanded
+        return !getParameters().isEmpty()
                ? View.VISIBLE
                : View.GONE;
     }
@@ -198,7 +205,16 @@ public class RouteViewModel
      */
     public int getPermissionsVisibility() {
         return !route.getRequiredPermissions()
-                     .isEmpty() && expanded
+                     .isEmpty()
+               ? View.VISIBLE
+               : View.GONE;
+    }
+
+    /**
+     * @return The visibility for the expanded details
+     */
+    public int getExpandedVisibility() {
+        return expanded
                ? View.VISIBLE
                : View.GONE;
     }
