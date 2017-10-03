@@ -1,0 +1,202 @@
+[
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_action_bar_view_list_nav_layout.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_template_big_media_narrow_custom.xml",
+        "source": "/Users/tglenn/.android/build-cache/b6d9c327e19fb767896c93bfbb755ecec731122f/output/res/layout/notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_template_media_custom.xml",
+        "source": "/Users/tglenn/.android/build-cache/b6d9c327e19fb767896c93bfbb755ecec731122f/output/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/select_dialog_singlechoice_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_template_big_media.xml",
+        "source": "/Users/tglenn/.android/build-cache/b6d9c327e19fb767896c93bfbb755ecec731122f/output/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_template_part_time.xml",
+        "source": "/Users/tglenn/.android/build-cache/2d01d337730965fb5301e2bde525bae502474391/output/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_search_view.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_search_view.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/support_simple_spinner_dropdown_item.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_expanded_menu_layout.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_action_bar_up_container.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_list_menu_item_radio.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_screen_simple.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_screen_simple.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_alert_dialog_button_bar_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/tglenn/.android/build-cache/2d01d337730965fb5301e2bde525bae502474391/output/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_popup_menu_header_item_layout.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_search_dropdown_item_icons_2line.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_list_menu_item_checkbox.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_template_big_media_narrow.xml",
+        "source": "/Users/tglenn/.android/build-cache/b6d9c327e19fb767896c93bfbb755ecec731122f/output/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_screen_toolbar.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_screen_content_include.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_screen_content_include.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_action_menu_layout.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/item_parameter.xml",
+        "source": "/Users/tglenn/src/Eddie/deepthought-routing-android/src/main/res/layout/item_parameter.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/select_dialog_item_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/select_dialog_item_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_template_big_media_custom.xml",
+        "source": "/Users/tglenn/.android/build-cache/b6d9c327e19fb767896c93bfbb755ecec731122f/output/res/layout/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_list_menu_item_layout.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_action_bar_title_item.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_template_lines_media.xml",
+        "source": "/Users/tglenn/.android/build-cache/b6d9c327e19fb767896c93bfbb755ecec731122f/output/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_activity_chooser_view.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_media_action.xml",
+        "source": "/Users/tglenn/.android/build-cache/b6d9c327e19fb767896c93bfbb755ecec731122f/output/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_template_media.xml",
+        "source": "/Users/tglenn/.android/build-cache/b6d9c327e19fb767896c93bfbb755ecec731122f/output/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_action_mode_close_item_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_action_mode_bar.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_action.xml",
+        "source": "/Users/tglenn/.android/build-cache/2d01d337730965fb5301e2bde525bae502474391/output/res/layout/notification_action.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_select_dialog_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_media_cancel_action.xml",
+        "source": "/Users/tglenn/.android/build-cache/b6d9c327e19fb767896c93bfbb755ecec731122f/output/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_action_menu_item_layout.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/item_route.xml",
+        "source": "/Users/tglenn/src/Eddie/deepthought-routing-android/src/main/res/layout/item_route.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_action_tombstone.xml",
+        "source": "/Users/tglenn/.android/build-cache/2d01d337730965fb5301e2bde525bae502474391/output/res/layout/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_dialog_title_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/select_dialog_multichoice_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/tooltip.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/tooltip.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/item_permission.xml",
+        "source": "/Users/tglenn/src/Eddie/deepthought-routing-android/src/main/res/layout/item_permission.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_activity_chooser_view_list_item.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_popup_menu_item_layout.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_alert_dialog_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_list_menu_item_icon.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/activity_routes.xml",
+        "source": "/Users/tglenn/src/Eddie/deepthought-routing-android/src/main/res/layout/activity_routes.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/abc_alert_dialog_title_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/layout/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/release/layout/notification_template_icon_group.xml",
+        "source": "/Users/tglenn/.android/build-cache/2d01d337730965fb5301e2bde525bae502474391/output/res/layout/notification_template_icon_group.xml"
+    }
+]

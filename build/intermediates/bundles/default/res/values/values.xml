@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_parameter">10dp</dimen>
+    <dimen name="text_size_label_required">11sp</dimen>
+    <dimen name="text_size_parameter_location">14sp</dimen>
+    <dimen name="text_size_parameter_name">16sp</dimen>
+    <dimen name="text_size_parameters_label">16sp</dimen>
+    <dimen name="text_size_permission_label">16sp</dimen>
+    <dimen name="text_size_route_description">14sp</dimen>
+    <dimen name="text_size_route_uri">18sp</dimen>
+    <string name="app_name">DeepThought-Routing</string>
+    <string name="label_parameters">Parameters</string>
+    <string name="label_required">* required</string>
+    <string name="label_required_permissions">Required Permissions</string>
+</resources>

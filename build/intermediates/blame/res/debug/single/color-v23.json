@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/debug/color-v23/abc_tint_seek_thumb.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/debug/color-v23/abc_color_highlight_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/color-v23/abc_color_highlight_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/debug/color-v23/abc_tint_default.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/debug/color-v23/abc_tint_spinner.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/debug/color-v23/abc_tint_switch_track.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/debug/color-v23/abc_tint_edittext.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/debug/color-v23/abc_tint_btn_checkable.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_text_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "/Users/tglenn/src/Eddie/deepthought-routing-android/build/intermediates/res/merged/debug/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "/Users/tglenn/.android/build-cache/3143a52d37ff0928f3efd054aef6443ba5d78aaf/output/res/color-v23/abc_btn_colored_borderless_text_material.xml"
+    }
+]

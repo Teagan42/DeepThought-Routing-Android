@@ -1,0 +1,5 @@
+rocks.teagantotally.deepthought_routing.databinding.ItemParameterBinding
+rocks.teagantotally.deepthought_routing.databinding.ItemRouteBinding
+rocks.teagantotally.deepthought_routing.databinding.ItemPermissionBinding
+rocks.teagantotally.deepthought_routing.databinding.ActivityRoutesBinding
+android.databinding.DataBindingComponent
