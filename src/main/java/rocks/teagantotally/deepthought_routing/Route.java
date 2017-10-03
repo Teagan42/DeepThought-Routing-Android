@@ -24,7 +24,11 @@ import rocks.teagantotally.deepthought_routing.annotations.FragmentRouteDefiniti
 import rocks.teagantotally.deepthought_routing.annotations.ParameterType;
 import rocks.teagantotally.deepthought_routing.annotations.QueryParam;
 import rocks.teagantotally.deepthought_routing.annotations.UrlParam;
+import rocks.teagantotally.deepthought_routing.exceptions.MalformedRouteException;
 import timber.log.Timber;
+
+import static rocks.teagantotally.deepthought_routing.exceptions.MalformedRouteException.MalformationType.INCONVERTABLE;
+import static rocks.teagantotally.deepthought_routing.exceptions.MalformedRouteException.MalformationType.MISSING;
 
 /**
  * Created by tglenn on 9/29/17.
@@ -122,7 +126,8 @@ public class Route {
      * @param requestedUri The uri requested
      * @return A bundle of url and query parameters if matched, null otherwise
      */
-    Bundle matchUri(Uri requestedUri) {
+    Bundle matchUri(Uri requestedUri) throws
+                                      MalformedRouteException {
         if (TextUtils.isEmpty(route.toString()) || TextUtils.isEmpty(requestedUri.toString())) {
             Timber.d("Empty routes");
             return null;
@@ -164,15 +169,26 @@ public class Route {
                     Timber.d("Requested uri %s is missing required url parameter %s",
                              requestedUri.toString(),
                              param);
-                    return null;
+                    throw new MalformedRouteException(requestedUri,
+                                                      paramSpec,
+                                                      MISSING);
                 }
 
                 String requestedSegment = requestedSegments.get(i);
-                addParameterToExtras(param,
-                                     requestedSegment,
-                                     urlParameters.get(param)
-                                                  .type(),
-                                     extras);
+                try {
+                    addParameterToExtras(param,
+                                         requestedSegment,
+                                         paramSpec.type(),
+                                         extras);
+                } catch (IllegalArgumentException e) {
+                    Timber.e(e,
+                             "Unable to convert %s to %s",
+                             requestedSegment,
+                             paramSpec.type().name());
+                    throw new MalformedRouteException(requestedUri,
+                                                      paramSpec,
+                                                      INCONVERTABLE);
+                }
             } else {
                 String requestedSegment =
                           requestedSegments.size() > i
@@ -192,16 +208,29 @@ public class Route {
         for (QueryParam queryParam : queryParameters.values()) {
             String queryValue = requestedUri.getQueryParameter(queryParam.value());
             if (queryParam.required() && queryValue == null) {
-                Timber.d("Requested uri %s is missing required query parameter %s",
+                Timber.e("Requested uri %s is missing required query parameter %s",
                          requestedUri.toString(),
                          queryParam.value());
-                return null;
+                throw new MalformedRouteException(requestedUri,
+                                                  queryParam,
+                                                  MISSING);
             }
 
-            addParameterToExtras(queryParam.value(),
-                                 queryValue,
-                                 queryParam.type(),
-                                 extras);
+            try {
+                addParameterToExtras(queryParam.value(),
+                                     queryValue,
+                                     queryParam.type(),
+                                     extras);
+            } catch (IllegalArgumentException e) {
+                Timber.e(e,
+                         "Unable to convert %s to type %s",
+                         queryValue,
+                         queryParam.type()
+                                   .name());
+                throw new MalformedRouteException(requestedUri,
+                                                  queryParam,
+                                                  INCONVERTABLE);
+            }
         }
 
         return extras;
