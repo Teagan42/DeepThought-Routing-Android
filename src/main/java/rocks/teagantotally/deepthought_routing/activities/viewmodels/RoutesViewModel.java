@@ -46,7 +46,12 @@ public class RoutesViewModel
         }
         routesLayoutManager = new LinearLayoutManager(context,
                                                       LinearLayoutManager.VERTICAL,
-                                                      false);
+                                                      false) {
+            @Override
+            public boolean supportsPredictiveItemAnimations() {
+                return true;
+            }
+        };
     }
 
     /**
