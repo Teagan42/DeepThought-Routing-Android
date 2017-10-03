@@ -40,6 +40,6 @@ public final class RouteProcessingActivity
             protected void onPostExecute(Void aVoid) {
                 finish();
             }
-        };
+        }.execute();
     }
 }
