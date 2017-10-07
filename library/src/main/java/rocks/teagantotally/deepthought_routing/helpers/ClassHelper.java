@@ -66,7 +66,7 @@ public abstract class ClassHelper {
                                             packagesToInclude)) {
                 continue;
             }
-            s
+
             Class<?> entryClass = dexFile.loadClass(entry,
                                                     classLoader);
             if (entryClass == null) {
