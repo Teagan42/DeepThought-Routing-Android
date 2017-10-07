@@ -16,7 +16,7 @@
         android:animateLayoutChanges="false"
         android:background="@android:color/background_dark"
         app:itemClickHandler="@{routes.routeClickHandler}"
-        app:itemViewBinder="@{routes.routeItemBinder}"
+        app:itemBinder="@{routes.routeItemBinder}"
         app:items="@{routes.routes}"
         app:layoutManager="@{routes.routesLayoutManager}" />
 
