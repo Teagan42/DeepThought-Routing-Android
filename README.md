@@ -110,3 +110,27 @@ In your manifest, specify the activity that will process the uri intents, specif
 ```
 
 By default, Deepthought-Routing will process intents via the `RouteProcessingActivity`, but you can specify any activity you would like.
+
+## Installation
+
+Add the repository
+
+```
+buildscript {
+    repositories {
+        ...
+        mavenCentral()
+        ...
+    }
+}
+```
+
+Add the dependency
+
+```
+dependencies {
+    ...
+    compile 'rocks.teagantotally:deepthoughtrouting:1.0.0'
+    ....
+}
+```
