@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="rocks.teagantotally.sample.viewmodels.LoginViewModel" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/header_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/log_in"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="8dp" />
+
+        <TextView
+            android:id="@+id/username_label"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/user_name"
+            android:textAlignment="viewStart"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/username"
+            app:layout_constraintEnd_toStartOf="@+id/username"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/username"
+            tools:layout_editor_absoluteX="8dp" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:text="@={vm.userName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/username_label"
+            app:layout_constraintTop_toBottomOf="@+id/header_text"
+            tools:layout_editor_absoluteX="136dp" />
+
+        <TextView
+            android:id="@+id/password_label"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/password"
+            android:textAlignment="viewStart"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/password"
+            app:layout_constraintEnd_toStartOf="@+id/password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/password"
+            tools:layout_editor_absoluteX="8dp" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:text="@={vm.password}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/password_label"
+            app:layout_constraintTop_toBottomOf="@+id/username"
+            tools:layout_editor_absoluteX="136dp" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:onClick="@{vm.submitClickListener}"
+            android:text="@string/submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password"
+            tools:layout_editor_absoluteX="10dp" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

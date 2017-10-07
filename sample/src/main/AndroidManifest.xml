@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="rocks.teagantotally.sample">
+
+    <application
+        android:name=".SampleApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:fullBackupContent="false">
+
+        <activity android:name=".activities.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activities.LoggedOutActivity" />
+        <activity android:name=".activities.LoggedInActivity" />
+        <activity android:name="rocks.teagantotally.deepthought_routing.activities.RouteDisplayActivity" />
+        <activity android:name="rocks.teagantotally.deepthought_routing.activities.RouteProcessingActivity">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="sample"
+                    android:scheme="link" />
+
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>
