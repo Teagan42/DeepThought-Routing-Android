@@ -62,14 +62,14 @@ public abstract class ClassHelper {
         Enumeration<String> entries = dexFile.entries();
         while (entries.hasMoreElements()) {
             String entry = entries.nextElement();
+            if (!isClassInPackagesToInclude(entry,
+                                            packagesToInclude)) {
+                continue;
+            }
+            s
             Class<?> entryClass = dexFile.loadClass(entry,
                                                     classLoader);
             if (entryClass == null) {
-                continue;
-            }
-
-            if (!includeAllPackages && !isClassInPackagesToInclude(entryClass,
-                                                                   packagesToInclude)) {
                 continue;
             }
 
@@ -85,18 +85,16 @@ public abstract class ClassHelper {
         return classes;
     }
 
-    private static boolean isClassInPackagesToInclude(Class<?> classToCheck,
+    private static boolean isClassInPackagesToInclude(String classToCheck,
                                                       Set<String> packagesToInclude) {
-        String classPackage = classToCheck.getPackage()
-                                          .getName();
-        if (TextUtils.isEmpty(classPackage)) {
-            Timber.d("Class %s has empty package name",
-                     classToCheck.getName());
+
+        if (TextUtils.isEmpty(classToCheck)) {
+            Timber.d("Class to check has empty package name");
             return false;
         }
 
         for (String packageToInclude : packagesToInclude) {
-            if (classPackage.toLowerCase()
+            if (classToCheck.toLowerCase()
                             .startsWith(packageToInclude.toLowerCase())) {
                 return true;
             }
