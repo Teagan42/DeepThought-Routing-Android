@@ -94,8 +94,7 @@ public abstract class RoutedActivity
         Class fragmentClass = (Class) args.get(Router.EXTRA_FRAGMENT);
         try {
             Fragment fragment = (Fragment) fragmentClass.newInstance();
-            Bundle extras = args.getBundle(Router.EXTRA_EXTRAS);
-            fragment.setArguments(extras);
+            fragment.setArguments(args);
 
             FragmentTransaction transaction =
                       getSupportFragmentManager().beginTransaction()
