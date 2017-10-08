@@ -427,6 +427,8 @@ public class Router<UserIdentifierType> {
                                  requestedUri.toString());
                 extras.putBoolean(EXTRA_ROUTED,
                                   true);
+                extras.putBundle(EXTRA_EXTRAS,
+                                 extras);
                 routeIntent.putExtras(extras);
                 routeIntent.addFlags(intentFlags);
 
