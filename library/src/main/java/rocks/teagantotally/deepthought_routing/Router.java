@@ -1,12 +1,17 @@
 package rocks.teagantotally.deepthought_routing;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -31,7 +36,9 @@ import timber.log.Timber;
  * Created by tglenn on 9/29/17.
  */
 
-public class Router<UserIdentifierType> {
+public class Router<UserIdentifierType>
+          implements Application.ActivityLifecycleCallbacks {
+    private static final String TAG = "Router";
     private static final String CLASS_NAME = Router.class.getName();
     private static final String ROUTES_ROUTE_DEFINITION =
               "Displays all registerd routes and their descriptions";
@@ -192,6 +199,11 @@ public class Router<UserIdentifierType> {
                 RouteDisplayActivity.router = router;
             }
 
+            Application application = (Application) context.getApplicationContext();
+            if (application != null) {
+                application.registerActivityLifecycleCallbacks(router);
+            }
+
             return router;
         }
 
@@ -321,6 +333,7 @@ public class Router<UserIdentifierType> {
 
     private Set<Route> routes = new HashSet<>();
     private Set<RouteListener> routeListeners = new HashSet<>();
+    private RoutedActivity visibleActivity = null;
     private UserPermissionProvider<UserIdentifierType> permissionProvider;
 
     Router(Set<Route> routes,
@@ -419,23 +432,22 @@ public class Router<UserIdentifierType> {
                                                           route);
                 }
 
-                Intent routeIntent = new Intent(context,
-                                                route.getActivityClass());
-                extras.putSerializable(EXTRA_FRAGMENT,
-                                       route.getFragmentClass());
-                extras.putString(EXTRA_ROUTE,
-                                 requestedUri.toString());
-                extras.putBoolean(EXTRA_ROUTED,
-                                  true);
-                routeIntent.putExtras(extras);
-                routeIntent.addFlags(intentFlags);
-
-                context.startActivity(routeIntent);
-
-                notifyListenersRouteHandled(route,
-                                            extras);
-
-                return true;
+                if (navigateToFragment(route,
+                                       extras,
+                                       requestedUri,
+                                       intentFlags)) {
+                    notifyListenersRouteHandled(route,
+                                                extras);
+                    return true;
+                } else if (navigateToActivity(context,
+                                              route,
+                                              extras,
+                                              requestedUri,
+                                              intentFlags)) {
+                    notifyListenersRouteHandled(route,
+                                                extras);
+                    return true;
+                }
             }
 
             if (malformedRoutes.isEmpty()) {
@@ -453,6 +465,80 @@ public class Router<UserIdentifierType> {
         }
 
         return false;
+    }
+
+    private boolean navigateToActivity(Context context,
+                                       Route route,
+                                       Bundle extras,
+                                       Uri requestedUri,
+                                       int intentFlags) {
+        Intent routeIntent = new Intent(context,
+                                        route.getActivityClass());
+        extras.putSerializable(EXTRA_FRAGMENT,
+                               route.getFragmentClass());
+        extras.putString(EXTRA_ROUTE,
+                         requestedUri.toString());
+        extras.putBoolean(EXTRA_ROUTED,
+                          true);
+        routeIntent.putExtras(extras);
+        routeIntent.addFlags(intentFlags);
+
+        context.startActivity(routeIntent);
+
+        return true;
+    }
+
+    private boolean navigateToFragment(Route route,
+                                       Bundle extras,
+                                       Uri requestedUri,
+                                       int intentFlags) {
+        if (visibleActivity == null
+            || !visibleActivity.getClass()
+                               .equals(route.getActivityClass())) {
+            return false;
+        }
+
+        FragmentManager fragmentManager = visibleActivity.getSupportFragmentManager();
+
+        boolean hasFragment = fragmentManager.getBackStackEntryCount() > 0;
+        if (hasFragment) {
+            int lastBackStackEntryIndex = fragmentManager.getBackStackEntryCount() - 1;
+            String backStackEntryTag = fragmentManager.getBackStackEntryAt(lastBackStackEntryIndex)
+                                                      .getName();
+            if (requestedUri.equals(requestedUri.toString())) {
+                Fragment topFragment = fragmentManager.findFragmentByTag(backStackEntryTag);
+                if (topFragment.getClass()
+                               .equals(route.getFragmentClass())) {
+                    Log.i(TAG,
+                          "navigateToFragment: Already on requested screen");
+                    return true;
+                }
+            }
+        }
+
+        Fragment fragment;
+        try {
+            fragment = route.getFragmentClass()
+                            .newInstance();
+        } catch (Exception e) {
+            Log.e(TAG,
+                  "navigateToFragment: Unable to instantiate fragment",
+                  e);
+            return false;
+        }
+
+        fragment.setArguments(extras);
+        FragmentTransaction transaction =
+                  fragmentManager.beginTransaction()
+                                 .replace(visibleActivity.getContainerViewId(),
+                                          fragment,
+                                          requestedUri.toString());
+        if ((intentFlags & Intent.FLAG_ACTIVITY_NO_HISTORY) == 0) {
+            transaction.addToBackStack(requestedUri.toString());
+        }
+        transaction.commit();
+
+        return true;
     }
 
     private void notifyListenersRouteNotFound(Uri uri) {
@@ -486,5 +572,43 @@ public class Router<UserIdentifierType> {
         for (RouteListener listener : routeListeners) {
             listener.onMalformedRoute(exceptions);
         }
+    }
+
+    @Override
+    public void onActivityCreated(Activity activity,
+                                  Bundle bundle) {
+
+    }
+
+    @Override
+    public void onActivityStarted(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityResumed(Activity activity) {
+        if (activity instanceof RoutedActivity) {
+            visibleActivity = (RoutedActivity) activity;
+        }
+    }
+
+    @Override
+    public void onActivityPaused(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityStopped(Activity activity) {
+        visibleActivity = null;
+    }
+
+    @Override
+    public void onActivitySaveInstanceState(Activity activity,
+                                            Bundle bundle) {
+
+    }
+
+    @Override
+    public void onActivityDestroyed(Activity activity) {
     }
 }
