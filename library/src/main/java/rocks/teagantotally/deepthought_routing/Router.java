@@ -1,6 +1,5 @@
 package rocks.teagantotally.deepthought_routing;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
@@ -30,14 +29,15 @@ import rocks.teagantotally.deepthought_routing.exceptions.RouteNotFoundException
 import rocks.teagantotally.deepthought_routing.helpers.ClassHelper;
 import rocks.teagantotally.deepthought_routing.interfaces.RouteListener;
 import rocks.teagantotally.deepthought_routing.interfaces.UserPermissionProvider;
+import rocks.teagantotally.deepthought_routing.lifecycle.RoutedActivityLifecycleCallbacks;
+import rocks.teagantotally.deepthought_routing.lifecycle.RoutedActivityLifecycleHandler;
 import timber.log.Timber;
 
 /**
  * Created by tglenn on 9/29/17.
  */
 
-public class Router<UserIdentifierType>
-          implements Application.ActivityLifecycleCallbacks {
+public class Router<UserIdentifierType> implements RoutedActivityLifecycleCallbacks {
     private static final String TAG = "Router";
     private static final String CLASS_NAME = Router.class.getName();
     private static final String ROUTES_ROUTE_DEFINITION =
@@ -199,10 +199,7 @@ public class Router<UserIdentifierType>
                 RouteDisplayActivity.router = router;
             }
 
-            Application application = (Application) context.getApplicationContext();
-            if (application != null) {
-                application.registerActivityLifecycleCallbacks(router);
-            }
+            RoutedActivityLifecycleHandler.registerCallbacks(router);
 
             return router;
         }
@@ -575,40 +572,14 @@ public class Router<UserIdentifierType>
     }
 
     @Override
-    public void onActivityCreated(Activity activity,
-                                  Bundle bundle) {
-
+    public void onActivityResumed(RoutedActivity routedActivity) {
+        visibleActivity = routedActivity;
     }
 
     @Override
-    public void onActivityStarted(Activity activity) {
-
-    }
-
-    @Override
-    public void onActivityResumed(Activity activity) {
-        if (activity instanceof RoutedActivity) {
-            visibleActivity = (RoutedActivity) activity;
+    public void onActivityStopped(RoutedActivity routedActivity) {
+        if (visibleActivity == routedActivity) {
+            visibleActivity = null;
         }
-    }
-
-    @Override
-    public void onActivityPaused(Activity activity) {
-
-    }
-
-    @Override
-    public void onActivityStopped(Activity activity) {
-        visibleActivity = null;
-    }
-
-    @Override
-    public void onActivitySaveInstanceState(Activity activity,
-                                            Bundle bundle) {
-
-    }
-
-    @Override
-    public void onActivityDestroyed(Activity activity) {
     }
 }

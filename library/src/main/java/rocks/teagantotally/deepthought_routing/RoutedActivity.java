@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import rocks.teagantotally.deepthought_routing.interfaces.FragmentContainer;
+import rocks.teagantotally.deepthought_routing.lifecycle.RoutedActivityLifecycleCallbacks;
+import rocks.teagantotally.deepthought_routing.lifecycle.RoutedActivityLifecycleHandler;
 
 /**
  * Created by tglenn on 9/29/17.
@@ -73,6 +75,27 @@ public abstract class RoutedActivity
         super.onSaveInstanceState(outState);
         outState.putBoolean(STATE_SKIP_FRAGMENT_ROUTING,
                             skipFragmentRouting);
+    }
+
+    /**
+     * Dispatch onResume() to fragments.  Note that for better inter-operation
+     * with older versions of the platform, at the point of this call the
+     * fragments attached to the activity are <em>not</em> resumed.  This means
+     * that in some cases the previous state may still be saved, not allowing
+     * fragment transactions that modify the state.  To correctly interact
+     * with fragments in their proper state, you should instead override
+     * {@link #onResumeFragments()}.
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        RoutedActivityLifecycleHandler.routedActivityResumed(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        RoutedActivityLifecycleHandler.routedActivityStopped(this);
     }
 
     private void routeToFragment() {
