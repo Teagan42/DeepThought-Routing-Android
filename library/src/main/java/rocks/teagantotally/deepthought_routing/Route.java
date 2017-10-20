@@ -158,6 +158,13 @@ public class Route {
         List<String> requestedSegments = requestedUri.getPathSegments();
         List<String> compareSegments = route.getPathSegments();
 
+        if (requestedSegments.size() != compareSegments.size()) {
+            Timber.d("Requested uri %s does not match path segment count of %d",
+                     requestedUri.toString(),
+                     compareSegments.size());
+            return null;
+        }
+
         Bundle extras = new Bundle();
         for (int i = 0; i < compareSegments.size(); i++) {
             String compareSegment = compareSegments.get(i);
